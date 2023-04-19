@@ -8,13 +8,10 @@ For a bit more deeper reading please refer to: https://brilliant.org/wiki/depth-
 ## Setup and Install
 
 ### Prerequisites
-python >= 3.8
-
-Linux OS (preferable)
-
-pytho3-pip
-
-Internet access to download and install pypi packages
+* python >= 3.8
+* Linux OS (preferable)
+* python3-pip
+* Internet access to download and install pypi packages
 
 ### Installtion
 clone the repo by using:
@@ -37,7 +34,8 @@ cd visualizations
 ll
 ```
 ### How to run custom tests:
-a. You'd have to edit the tests/unitTest.py and add a new funtion with the following template:
+#### Option a:
+You'd have to edit the tests/unitTest.py and add a new funtion with the following template:
 
 ```
 def test_<random_name>():
@@ -52,8 +50,20 @@ def test_<random_name>():
     im_path = os.path.join(TEST_DIR, "visualizations/test_<random_name>.gif")
     test_maze_navigator(maze, entry, exit, im_path)
 ```
-b. If the custom data follows the main assumpltions stated below a gif will be created at the path im_path described in the function.
+If the custom data follows the main assumpltions stated below a gif will be created at the path im_path described in the function.
 
+#### Option b:
+Edit the main function in the src/mazeNavigator.py file and provide the required information. And then run the script.
+
+```
+cd maze-navigator/src
+
+vi mazeNavigator.py
+# Replace the existing test data with new data
+
+python3 mazeNavigator.py
+
+```
 
 ## Objective
 An algorithm that can solve simple mazes.
@@ -77,7 +87,7 @@ To find hallways we would have to find all the empty spaces around the current p
 
 * Start from the entrance and mark the node in memory.
 
-* Move to all the adjacent nodes and continue this loop until there is no unmarked adjacent node while memorizing the path.
+* Move to all of the adjacent nodes and continue this loop until there is no unmarked adjacent node while memorizing the path.
 
 
 ### Story 3:
@@ -93,7 +103,7 @@ Multiple hallways stacked together becomes a room or to put it simply multiple h
 ### Story 4:
 Follow winding paths.
 ### Implementation:
-Its the same as rooms i.e., hallways hallways stacked together but instead of being side to side they are linked end to end. But the implementation approach for story 3 holds true for the story 4 as well
+Its the same as rooms i.e., hallways stacked together but instead of being side to side they are linked end to end. But the implementation approach for story 3 holds true for the story 4 as well
 
 
 ### Story 5:
@@ -108,12 +118,12 @@ Compounded rooms (snaking hallways or rooms) will become a maze or and exit of o
 ### Analysis Story 1
 At this point, you may have created a general-purpose solver. If not, try to identify some types of mazes that your algorithm would not solve correctly.
 ### Response
-Yes the code in this repo can solve most of the mazes. The exceptions being the mazes loops and no exits and some times in provides a longer exit path if there more 2 routes to exit.
+Yes, the code in this repo can solve most of the mazes. The exceptions being the mazes where the path ways loop with no exits, and some times it provides a longer exit path if there are more than 2 routes to exit.
 
 ###  Analysis Story 2
 If you kept things simple, it is likely that your algorithm may not be as efficient as possible. Describe the solution’s complexity and approaches that could be used to optimize it further.
 ### Response
-Complexity values: With out visualization the solutions both time and space complexties are O(m*n), where m and n are the dimensions of the maze, when all the braches are traversed.
+Complexity values: Without visualization the solution's both time and space complexties are O(m*n), where m and n are the dimensions of the maze, when all the braches are traversed.
 
 Optimization method: Instead of looking dead end using DFS its easier to implement BFS where we only pick the nodes that connected to the row below (directly or indirectly) which would significamtly reduce the time complexity unlike DFS where in this scenario the complexity is always at max.
 
