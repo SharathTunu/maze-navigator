@@ -21,12 +21,18 @@ class mazeRunner:
         1.  a. Start from the entrance and mark the node in memory.
             b. Move to all the adjacent nodes and continue this loop until there is no unmarked adjacent node.
         2. Finding the alternate routes to dead ends i.e., explore hallways. 
-            a. Fill up the path travelled with a wall and check for a new dead ends
-            b. Open up the filled path
+            a. If we've already been there or there is a wall, quit
+            b. Fill up the path travelled with a wall and check for a new dead ends
         3. Compounded rooms will become a maze and exit of one rooms will be entrance of the other
         """
         # 1a.
         i, j = args
+        # 2a.
+        if (i, j) in self.fullPath or self.maze[i][j] > 0:
+            return
+        # 2b.
+        self.fullPath.append((i, j))
+        self.maze[i][j] = 2
 
         # 1b.
         # No need to look further if exit is reached..
