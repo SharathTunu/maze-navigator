@@ -121,4 +121,17 @@ Optimization method: Instead of looking dead end using DFS its easier to impleme
 Moving robots isn’t as simple as moving a 1x1 pixel through a maze. Instead, we must plan a path while avoiding obstacles using a collision model. We can approximate this by plotting a path for a 1x3 “ship” through a maze. In addition to moving “backward” and “forward” the ship can also rotate around its center of gravity provided it is in the center of a 3x3
 Do not code a solution, but instead describe an approach for decomposing this problem into incremental stories as done for the maze problem above.
 
+### Response
+
+### Story 1:
+Find the rows with open spaces
+
+### Story 2:
+Find paths that a minumum of 3 cells long horizontally or vertically
+
+### Story 3:
+At the end of the path way should open up to 3*3 "room" so that the object can fit horizonatlly or vertically in to 1 of the 6 postions. Use this distiction to disqalify and path ways that obsturct the transtition of the end effector in to its next turn.
+
+### Story 4:
+Repeat the above steps till the "1*3" end effector reaches the exit
 
