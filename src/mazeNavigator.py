@@ -17,6 +17,14 @@ class mazeRunner:
         self.dfs(*self.entrance)
 
     def dfs(self, *args, **kwargs) -> None:
+        """
+        1.  a. Start from the entrance and mark the node in memory.
+            b. Move to all the adjacent nodes and continue this loop until there is no unmarked adjacent node.
+        2. Finding the alternate routes to dead ends i.e., explore hallways. 
+            a. Fill up the path travelled with a wall and check for a new dead ends
+            b. Open up the filled path
+        3. Compounded rooms will become a maze and exit of one rooms will be entrance of the other
+        """
         pass
 
 
