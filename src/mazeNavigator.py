@@ -25,7 +25,19 @@ class mazeRunner:
             b. Open up the filled path
         3. Compounded rooms will become a maze and exit of one rooms will be entrance of the other
         """
-        pass
+        # 1a.
+        i, j = args
+
+        # 1b.
+        # No need to look further if exit is reached..
+        if (i, j) == (self.exit[0], self.exit[1]):
+            return
+        else:
+            self.dfs(i - 1, j)  # check top
+            self.dfs(i + 1, j)  # check bottom
+            self.dfs(i, j + 1)  # check right
+            self.dfs(i, j - 1)  # check left
+        return
 
 
 if __name__ == "__main__":
