@@ -1,3 +1,5 @@
+from copy import deepcopy
+
 
 class mazeRunner:
     """
@@ -27,6 +29,8 @@ class mazeRunner:
         """
         # 1a.
         i, j = args
+        if i < 0 or j < 0 or i > len(self.maze)-1 or j > len(self.maze[0])-1:
+            return
         # 2a.
         if (i, j) in self.fullPath or self.maze[i][j] > 0:
             return
@@ -37,12 +41,16 @@ class mazeRunner:
         # 1b.
         # No need to look further if exit is reached..
         if (i, j) == (self.exit[0], self.exit[1]):
+            self.solution = deepcopy(self.fullPath)
+            self.fullPath.pop()
             return
         else:
             self.dfs(i - 1, j)  # check top
             self.dfs(i + 1, j)  # check bottom
             self.dfs(i, j + 1)  # check right
             self.dfs(i, j - 1)  # check left
+        
+        self.fullPath.pop()
         return
 
 
