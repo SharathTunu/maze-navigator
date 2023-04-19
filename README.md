@@ -9,9 +9,12 @@ For a bit more deeper reading please refer to: https://brilliant.org/wiki/depth-
 
 ### Prerequisites
 python >= 3.8
+
 Linux OS (preferable)
+
 pytho3-pip
-Internet access to download and install 
+
+Internet access to download and install pypi packages
 
 ### Installtion
 clone the repo by using:
@@ -97,3 +100,25 @@ Its the same as rooms i.e., hallways hallways stacked together but instead of be
 Reach the end of the maze, even if there are dead ends.
 ### Implementation:
 Compounded rooms (snaking hallways or rooms) will become a maze or and exit of one rooms will be entrance of the other. The DFS method of searching till a dead end, backtracking and looking for alternatives will pass through one room after another till reaches the exit. So looping step 3 until we reach the exit gives us the route out of the maze.
+
+
+
+## Analysis
+
+### Analysis Story 1
+At this point, you may have created a general-purpose solver. If not, try to identify some types of mazes that your algorithm would not solve correctly.
+### Response
+Yes the code in this repo can solve most of the mazes. The exceptions being the mazes loops and no exits and some times in provides a longer exit path if there more 2 routes to exit.
+
+###  Analysis Story 2
+If you kept things simple, it is likely that your algorithm may not be as efficient as possible. Describe the solution’s complexity and approaches that could be used to optimize it further.
+### Response
+Complexity values: With out visualization the solutions both time and space complexties are O(m*n), where m and n are the dimensions of the maze, when all the braches are traversed.
+
+Optimization method: Instead of looking dead end using DFS its easier to implement BFS where we only pick the nodes that connected to the row below (directly or indirectly) which would significamtly reduce the time complexity unlike DFS where in this scenario the complexity is always at max.
+
+### Analysis Story 3
+Moving robots isn’t as simple as moving a 1x1 pixel through a maze. Instead, we must plan a path while avoiding obstacles using a collision model. We can approximate this by plotting a path for a 1x3 “ship” through a maze. In addition to moving “backward” and “forward” the ship can also rotate around its center of gravity provided it is in the center of a 3x3
+Do not code a solution, but instead describe an approach for decomposing this problem into incremental stories as done for the maze problem above.
+
+
