@@ -60,4 +60,9 @@ class visualize:
         # 3.
         draw = self.__drawPaths(thePath, draw)
         self.images.append(im)
+    
+    def save(self, im_path: str) -> None:
+        self.images[0].save(im_path,
+                save_all=True, append_images=self.images[1:],
+                optimize=False, duration=50, loop=0)
 

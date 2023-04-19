@@ -13,11 +13,12 @@ class mazeRunner(visualize):
         super(mazeRunner, self).__init__()
         self.maze = maze
 
-    def tracePath(self, entrancePoint: list, exitPoint: list) -> None:
+    def tracePath(self, entrancePoint: list, exitPoint: list, save_path: str) -> None:
         self.entrance = entrancePoint
         self.exit = exitPoint
         self.fullPath = []
         self.dfs(*self.entrance)
+        self.save(save_path)
 
     def dfs(self, *args, **kwargs) -> None:
         """
@@ -63,4 +64,17 @@ class mazeRunner(visualize):
 
 
 if __name__ == "__main__":
-    pass
+    maze = [[1, 1, 1, 1, 0, 1, 1, 1, 1, 1],
+            [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+            [1, 0, 1, 1, 1, 0, 1, 1, 0, 1],
+            [1, 1, 1, 0, 0, 0, 0, 1, 0, 1],
+            [1, 0, 0, 0, 1, 1, 1, 1, 0, 1],
+            [1, 1, 1, 0, 0, 0, 1, 0, 0, 1],
+            [1, 0, 1, 1, 1, 0, 1, 1, 1, 1],
+            [1, 0, 0, 0, 0, 0, 1, 1, 0, 1],
+            [1, 1, 0, 1, 1, 0, 0, 0, 0, 1],
+            [1, 1, 1, 1, 1, 1, 1, 0, 1, 1]]
+
+    maze1 = mazeRunner(maze)
+    maze1.tracePath([0, 4], [9, 7], "../main_maze.gif")
+    print(maze1.solution)
