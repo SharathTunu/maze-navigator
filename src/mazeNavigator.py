@@ -1,7 +1,8 @@
+from visualize import visualize
 from copy import deepcopy
 
 
-class mazeRunner:
+class mazeRunner(visualize):
     """
     Maze runner needs 3 inputs
     1. The maze itself
@@ -37,11 +38,17 @@ class mazeRunner:
         # 2b.
         self.fullPath.append((i, j))
         self.maze[i][j] = 2
+        self.drawMaze(self.fullPath)
 
         # 1b.
         # No need to look further if exit is reached..
         if (i, j) == (self.exit[0], self.exit[1]):
             self.solution = deepcopy(self.fullPath)
+            for animate in range(10):
+                if animate % 2 == 0:
+                    self.drawMaze(self.fullPath)
+                else:
+                    self.drawMaze()
             self.fullPath.pop()
             return
         else:
@@ -51,6 +58,7 @@ class mazeRunner:
             self.dfs(i, j - 1)  # check left
         
         self.fullPath.pop()
+        self.drawMaze(self.fullPath)
         return
 
 
