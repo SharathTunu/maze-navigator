@@ -5,6 +5,53 @@ Depth-first search (DFS) is an algorithm for searching a graph or tree data stru
 
 For a bit more deeper reading please refer to: https://brilliant.org/wiki/depth-first-search-dfs/
 
+## Setup and Install
+
+### Prerequisites
+python >= 3.8
+Linux OS (preferable)
+pytho3-pip
+Internet access to download and install 
+
+### Installtion
+clone the repo by using:
+```
+git clone https://github.com/SharathTunu/maze-navigator.git
+```
+
+Go the root dir off the repo maze-navigator and install the requirements:
+```
+cd maze-navigator/scripts
+python3 -m pip install -r requirements.txt
+```
+
+To run the tests which will print out the desired output in the terminal and outputs in the maze-navigator/tests/visualizations:
+```
+cd ../tests
+python3 unitTest.py
+
+cd visualizations
+ll
+```
+### How to run custom tests:
+a. You'd have to edit the tests/unitTest.py and add a new funtion with the following template:
+
+```
+def test_<random_name>():
+    
+    maze = [[1, 1, 0, 1], 
+            [1, 1, 0, 1],
+            [1, 1, 0, 1],
+            [1, 1, 0, 1]] # A list of lists with m*n shape where 1s are walls and 0s are open spaces...
+
+    entry = [0, 2]  # i, j are the row, column positions for the maze
+    exit = [3, 2]  # i, j are the row, column positions for the maze
+    im_path = os.path.join(TEST_DIR, "visualizations/test_<random_name>.gif")
+    test_maze_navigator(maze, entry, exit, im_path)
+```
+b. If the custom data follows the main assumpltions stated below a gif will be created at the path im_path described in the function.
+
+
 ## Objective
 An algorithm that can solve simple mazes.
 
