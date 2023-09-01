@@ -5,6 +5,10 @@ Depth-first search (DFS) is an algorithm for searching a graph or tree data stru
 
 For a bit more deeper reading please refer to: https://brilliant.org/wiki/depth-first-search-dfs/
 
+<p align="center">
+  <img src="tests/visualizations/main_maze.gif" />
+</p>
+
 ## Setup and Install
 
 ### Prerequisites
